@@ -5640,6 +5640,7 @@ void MovieClip::declareFrame()
 }
 void MovieClip::AVM1HandleScripts()
 {
+	LOG(LOG_INFO, "AVM "<<this);
 	if (isAVM1Loaded && !this->isOnStage())
 		return;
 	if (state.last_FP > (int)state.FP && state.FP==0 && !state.explicit_FP)
@@ -5779,6 +5780,7 @@ void DisplayObjectContainer::advanceFrame()
  */
 void MovieClip::advanceFrame()
 {
+	LOG(LOG_INFO, "ADV "<<this<<" "<<state.last_FP<<" "<<state.FP<<" "<<state.next_FP<<" "<<state.stop_FP);
 	getSystemState()->stage->AVM1AddScriptedMovieClip(this);
 	if (state.stop_FP)
 		stopSound();
